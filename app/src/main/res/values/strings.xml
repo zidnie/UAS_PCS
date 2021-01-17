@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Github Api UAS</string>
+
+    <string name="search">Search</string>
+    <string name="search_hint">Search here</string>
+
+    <string name="tab1">Followers</string>
+    <string name="tab2">Following</string>
+
+    <string name="not_found">Username not found</string>
+</resources>
