@@ -9,7 +9,7 @@ import com.github.uasapi.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         const val EXTRA_USERNAME = "extra_username"
     }
 
@@ -30,7 +30,10 @@ class DetailActivity : AppCompatActivity() {
             title = ""
         }
 
-        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(DetailUserViewModel::class.java)
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        ).get(DetailUserViewModel::class.java)
 
 
         username?.let { viewModel.setUserDetail(it) }
@@ -41,7 +44,7 @@ class DetailActivity : AppCompatActivity() {
                     detailLogin.text = it.login
                     detailURL.text = it.html_url
                     detailFollower.text = "${it.followers} ${getString(R.string.tab1)}"
-                    detailFollowing.text =  "${it.following} ${getString(R.string.tab2)}"
+                    detailFollowing.text = "${it.following} ${getString(R.string.tab2)}"
                     detailRepos.text = "${it.public_repos} Repos"
                     Glide.with(this@DetailActivity)
                         .load(it.avatar_url)

@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         adapter = MainAdapter()
         adapter.notifyDataSetChanged()
 
-        adapter.setOnItemClickCallback(object : MainAdapter.OnItemClickCallback{
+        adapter.setOnItemClickCallback(object : MainAdapter.OnItemClickCallback {
             override fun onItemClicked(data: User) {
                 Intent(this@MainActivity, DetailActivity::class.java).also {
                     it.putExtra(DetailActivity.EXTRA_USERNAME, data.login)
@@ -45,18 +45,26 @@ class MainActivity : AppCompatActivity() {
         })
 
 
-        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(UserViewModel::class.java)
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        ).get(UserViewModel::class.java)
 
         binding.apply {
 
             recyclerMain.adapter = adapter
             recyclerMain.layoutManager = LinearLayoutManager(this@MainActivity)
-            recyclerMain.addItemDecoration(DividerItemDecoration(this@MainActivity,LinearLayout.VERTICAL))
+            recyclerMain.addItemDecoration(
+                DividerItemDecoration(
+                    this@MainActivity,
+                    LinearLayout.VERTICAL
+                )
+            )
         }
 
 
-        viewModel.getSearchUser().observe(this){
-            if(it!=null){
+        viewModel.getSearchUser().observe(this) {
+            if (it != null) {
                 if (it.isEmpty()) {
                     Toast.makeText(this, getString(R.string.not_found), Toast.LENGTH_SHORT).show()
                 }
@@ -67,18 +75,18 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun searchUser(query: String){
+    private fun searchUser(query: String) {
         binding.apply {
-            if(query.isEmpty()) return
+            if (query.isEmpty()) return
             showLoading(true)
             viewModel.setSearchUser(query)
         }
     }
 
-    private fun showLoading(state: Boolean){
-        if(state){
+    private fun showLoading(state: Boolean) {
+        if (state) {
             binding.progressBar.visibility = View.VISIBLE
-        }else{
+        } else {
             binding.progressBar.visibility = View.GONE
         }
     }
@@ -87,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_bar, menu)
 
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView =  menu?.findItem(R.id.search)?.actionView as SearchView
+        val searchView = menu?.findItem(R.id.search)?.actionView as SearchView
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         searchView.queryHint = resources.getString(R.string.search_hint)

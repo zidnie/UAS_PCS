@@ -38,9 +38,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            tools:text="url"
             android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:text="url" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -70,9 +70,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="12dp"
                 android:gravity="center_vertical"
-                tools:text="@string/tab2"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:text="@string/tab2" />
 
             <TextView
                 android:id="@+id/detailRepos"
@@ -80,10 +80,10 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="4dp"
                 android:gravity="center_vertical"
-                tools:text="Repos"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                app:drawableStartCompat="@drawable/ic_repo" />
+                app:drawableStartCompat="@drawable/ic_repo"
+                tools:text="Repos" />
         </LinearLayout>
 
     </LinearLayout>
@@ -98,7 +98,7 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/detailPager"
         android:layout_width="match_parent"
-        android:background="#ececec"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#ececec" />
 
 </LinearLayout>

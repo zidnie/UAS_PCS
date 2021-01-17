@@ -15,4 +15,4 @@ data class DetailUser(
     val public_repos: Int,
     val following: Int,
     val followers: Int
-) :Parcelable
+) : Parcelable

@@ -8,7 +8,7 @@ import com.github.uasapi.data.model.User
 import com.github.uasapi.databinding.ItemMainBinding
 import kotlinx.android.synthetic.main.item_main.view.*
 
-class MainAdapter: RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     private val list = ArrayList<User>()
 

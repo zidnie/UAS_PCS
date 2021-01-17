@@ -13,19 +13,18 @@ interface UserService {
 
     @GET("search/users")
     @Headers("Authorization: token 183eb216fadee63ad174672eff578918ee2e11c3")
-    fun searchUser(@Query("q") query: String) : Call<UserList>
+    fun searchUser(@Query("q") query: String): Call<UserList>
 
     @GET("users/{username}")
     @Headers("Authorization: token 183eb216fadee63ad174672eff578918ee2e11c3")
-    fun detailUser(@Path("username") username: String) : Call<DetailUser>
+    fun detailUser(@Path("username") username: String): Call<DetailUser>
 
     @GET("users/{username}/followers")
     @Headers("Authorization: token 183eb216fadee63ad174672eff578918ee2e11c3")
-    fun getFollowers(@Path("username") username: String) : Call<ArrayList<User>>
+    fun getFollowers(@Path("username") username: String): Call<ArrayList<User>>
 
     @GET("users/{username}/following")
     @Headers("Authorization: token 183eb216fadee63ad174672eff578918ee2e11c3")
-    fun getFollowing(@Path("username") username: String) : Call<ArrayList<User>>
-
+    fun getFollowing(@Path("username") username: String): Call<ArrayList<User>>
 
 }

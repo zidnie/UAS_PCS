@@ -11,22 +11,23 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UserViewModel: ViewModel() {
+class UserViewModel : ViewModel() {
 
     val listUsers = MutableLiveData<ArrayList<User>>()
 
-    fun setSearchUser(query: String){
+    fun setSearchUser(query: String) {
         RetrofitApi.userService()
             .searchUser(query)
             .enqueue(object : Callback<UserList> {
                 override fun onResponse(call: Call<UserList>, response: Response<UserList>) {
-                    if(response.isSuccessful){
+                    if (response.isSuccessful) {
                         listUsers.postValue(response.body()?.items)
                     }
                 }
 
                 override fun onFailure(call: Call<UserList>, t: Throwable) {
-                    t.message?.let { Log.d("Failure" , it)
+                    t.message?.let {
+                        Log.d("Failure", it)
                     }
                 }
             })
